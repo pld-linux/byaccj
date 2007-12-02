@@ -1,15 +1,15 @@
 # TODO
-# - why only i386?
+# - main.o(.text+0x976): In function `create_file_names':
+#   main.c: warning: the use of `mktemp' is dangerous, better use `mkstemp'
 Summary:	Parser Generator with Java Extension
 Name:		byaccj
-Version:	1.11
+Version:	1.14
 Release:	0.1
 License:	GPL
 Group:		Development/Languages/Java
 URL:		http://byaccj.sourceforge.net/
 Source0:	http://dl.sourceforge.net/byaccj/%{name}%{version}_src.tar.gz
-# Source0-md5:	c8461131339b238ed750fe6509fae16b
-BuildArch:	i386
+# Source0-md5:	23c7d0526a3794f06635f3ef3845a045
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,7 +27,10 @@ there finally is a YACC for Java now!
 %setup -q -n %{name}%{version}_src
 
 %build
-%{__make} -C src linux
+%{__make} -C src linux \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags}" \
+	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
