@@ -1,12 +1,13 @@
 # TODO
 # - main.o(.text+0x976): In function `create_file_names':
 #   main.c: warning: the use of `mktemp' is dangerous, better use `mkstemp'
+#   (mkstemp() should be used to create files in ${TMPDIR:-/tmp})
 Summary:	Parser Generator with Java Extension
 Summary(pl.UTF-8):	Generator analizatorów rozszerzony o Javę
 Name:		byaccj
 Version:	1.14
 Release:	0.1
-License:	GPL
+License:	Public Domain
 Group:		Development/Languages/Java
 Source0:	http://dl.sourceforge.net/byaccj/%{name}%{version}_src.tar.gz
 # Source0-md5:	23c7d0526a3794f06635f3ef3845a045
@@ -55,5 +56,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc docs/*
+%doc docs/* src/{new_features,no_warranty,readme}
 %attr(755,root,root) %{_bindir}/%{name}
