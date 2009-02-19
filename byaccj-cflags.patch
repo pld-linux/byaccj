@@ -1,0 +1,22 @@
+--- byaccj1.15/src/Makefile~	2008-11-24 09:41:02.000000000 +0100
++++ byaccj1.15/src/Makefile	2009-02-19 14:29:49.000000000 +0100
+@@ -5,8 +5,8 @@
+ #################################################
+ 
+ CC      = gcc
+-CFLAGS  = -O -arch i386 -isysroot /Developer/SDKs/MacOSX10.4u.sdk -mmacosx-version-min=10.4
+-LDFLAGS = -static -arch ppc -isysroot /Developer/SDKs/MacOSX10.4u.sdk
++CFLAGS  = -O -isysroot /Developer/SDKs/MacOSX10.4u.sdk -mmacosx-version-min=10.4
++LDFLAGS = -static -isysroot /Developer/SDKs/MacOSX10.4u.sdk
+ TAR     = tar
+ GZIP    = gzip
+ VERS    = byaccj1.15
+@@ -75,7 +75,7 @@
+ 	$(CC) -c $(CFLAGS) $(INC) $< -o $@
+ 
+ yacc: $(OBJ)
+-	$(CC) -o yacc -arch i386 -isysroot /Developer/SDKs/MacOSX10.4u.sdk -mmacosx-version-min=10.4 $(OBJ)
++	$(CC) -o yacc -isysroot /Developer/SDKs/MacOSX10.4u.sdk -mmacosx-version-min=10.4 $(OBJ)
+ 	@echo "done"
+ 
+ clean:
