@@ -1,0 +1,17 @@
+--- byaccj1.15/src/main.c~	2006-10-16 20:16:16.000000000 +0200
++++ byaccj1.15/src/main.c	2009-02-19 14:38:45.000000000 +0100
+@@ -353,10 +353,10 @@
+     union_file_name[len + 5] = 'u';
+ 	output_file_name[len + 5] = 'o';
+ 
+-    mktemp(action_file_name);
+-    mktemp(text_file_name);
+-    mktemp(union_file_name);
+-	mktemp(output_file_name);
++    mkstemp(action_file_name);
++    mkstemp(text_file_name);
++    mkstemp(union_file_name);
++    mkstemp(output_file_name);
+ 
+     len = strlen(file_prefix);
+ 
