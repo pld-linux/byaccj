@@ -1,16 +1,14 @@
-# TODO
-# - main.o(.text+0x976): In function `create_file_names':
-#   main.c: warning: the use of `mktemp' is dangerous, better use `mkstemp'
-#   (mkstemp() should be used to create files in ${TMPDIR:-/tmp})
 Summary:	Parser Generator with Java Extension
 Summary(pl.UTF-8):	Generator analizatorów rozszerzony o Javę
 Name:		byaccj
-Version:	1.14
-Release:	0.1
+Version:	1.15
+Release:	1
 License:	Public Domain
 Group:		Development/Languages/Java
 Source0:	http://dl.sourceforge.net/byaccj/%{name}%{version}_src.tar.gz
-# Source0-md5:	23c7d0526a3794f06635f3ef3845a045
+# Source0-md5:	5ee9959af35f245ac2c4355f85fdf351
+Patch0:		%{name}-cflags.patch
+Patch1:		%{name}-mkstemp.patch
 URL:		http://byaccj.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,7 +36,10 @@ generowanie kodu źródłowego w Javie zamiast C/C++. W ten sposób
 powstał YACC dla Javy.
 
 %prep
-%setup -q -n %{name}%{version}_src
+%setup -q -n %{name}%{version}
+
+%patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} -C src linux \
@@ -56,5 +57,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc docs/* src/{new_features,no_warranty,readme}
+%doc docs/* src/{new_features,no_warranty}
 %attr(755,root,root) %{_bindir}/%{name}
