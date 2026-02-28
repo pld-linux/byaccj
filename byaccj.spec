@@ -2,7 +2,7 @@ Summary:	Parser Generator with Java Extension
 Summary(pl.UTF-8):	Generator analizatorów rozszerzony o Javę
 Name:		byaccj
 Version:	1.15
-Release:	1
+Release:	2
 License:	Public Domain
 Group:		Development/Languages/Java
 Source0:	http://dl.sourceforge.net/byaccj/%{name}%{version}_src.tar.gz
