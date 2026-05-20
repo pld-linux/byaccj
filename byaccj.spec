@@ -2,7 +2,7 @@ Summary:	Parser Generator with Java Extension
 Summary(pl.UTF-8):	Generator analizatorów rozszerzony o Javę
 Name:		byaccj
 Version:	1.15
-Release:	2
+Release:	3
 License:	Public Domain
 Group:		Development/Languages/Java
 Source0:	http://dl.sourceforge.net/byaccj/%{name}%{version}_src.tar.gz
@@ -44,7 +44,7 @@ powstał YACC dla Javy.
 %build
 %{__make} -C src linux \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags}" \
+	CFLAGS="%{rpmcppflags} %{rpmcflags} -std=gnu89" \
 	LDFLAGS="%{rpmldflags}"
 
 %install
